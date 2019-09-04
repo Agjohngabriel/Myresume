@@ -90,18 +90,18 @@
 		<form class="form-container" method="post" name="Cforms" onsubmit="return validateForm()">
 		<h2 class="align-center signin-intro">Send me a message</h2>
 		<fieldset>
-			<input type="text" name="Email" placeholder="E-mail Address" >
-			<input type="password" name="password" placeholder="Password">
+			<input type="text" name="name" placeholder="Full Name" >
+			<input type="Email" name="EMail" placeholder="Enter your Email">
 			<input type="textfield" name="message" placeholder="Enter Your Message">
-			<input type="submit" name="Send"  class="btn-in">
+			<input type="submit" name="Send"  class="btn-in" value="Send">
 		</fieldset>
 	</form>
 	</div>
 	<script type="text/javascript">
 		function validateForm() {
-			var name = document.forms["Cforms"]["Email"].value;
-			var pwd = document.forms["Cforms"]["Email"].value;
-			var message = document.forms["Cforms"]["Email"].value;
+			var name = document.forms["Cforms"]["name"].value;
+			var email = document.forms["Cforms"]["Email"].value;
+			var message = document.forms["Cforms"]["Message"].value;
 
 			if (name == "" || name.length < 4) {
 				alert("Name must be filled and must be more than 4 character");
@@ -112,7 +112,13 @@
 				alert("Message must be more than 20 characters please and submit again");
 				return false;
 			}
-		}
+			var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    		if(reg.test(email) == false) {
+      			alert('Invalid Email Address');
+      			return false;
+    		}
+  		}
+		
 	</script>
 	 <!-- <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
 Name: <input type="text" name="fname">
