@@ -87,7 +87,46 @@
 			</div>
 			
 		</div>
+		<form class="form-container" method="post" name="Cforms" onsubmit="return validateForm()">
+		<h2 class="align-center signin-intro">Send me a message</h2>
+		<fieldset>
+			<input type="text" name="Email" placeholder="E-mail Address" >
+			<input type="password" name="password" placeholder="Password">
+			<input type="textfield" name="message" placeholder="Enter Your Message">
+			<input type="submit" name="Send"  class="btn-in">
+		</fieldset>
+	</form>
 	</div>
+	<script type="text/javascript">
+		function validateForm() {
+			var name = document.forms["Cforms"]["Email"].value;
+			var pwd = document.forms["Cforms"]["Email"].value;
+			var message = document.forms["Cforms"]["Email"].value;
+
+			if (name == "" || name.length < 4) {
+				alert("Name must be filled and must be more than 4 character");
+				return false;
+			}
+
+			if (message.length < 20) {
+				alert("Message must be more than 20 characters please and submit again");
+				return false;
+			}
+		}
+	</script>
+	 <!-- <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+Name: <input type="text" name="fname">
+<input type="submit" value="Submit">
+</form> 
+	<script type="text/javascript">
+		function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+	</script> -->
 </body>
 <footer class="section-footer">
 	<div>
