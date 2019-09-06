@@ -91,7 +91,7 @@
 		<h2 class="align-center signin-intro">Send me a message</h2>
 		<fieldset>
 			<input type="text" name="name" placeholder="Full Name" >
-			<input type="Email" name="EMail" placeholder="Enter your Email">
+			<input type="Email" name="Email" placeholder="Enter your Email">
 			<input type="textfield" name="message" placeholder="Enter Your Message">
 			<input type="submit" name="Send"  class="btn-in" value="Send">
 		</fieldset>
@@ -101,22 +101,22 @@
 		function validateForm() {
 			var name = document.forms["Cforms"]["name"].value;
 			var email = document.forms["Cforms"]["Email"].value;
-			var message = document.forms["Cforms"]["Message"].value;
+			var message = document.forms["Cforms"]["message"].value;
+			var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
 			if (name == "" || name.length < 4) {
 				alert("Name must be filled and must be more than 4 character");
 				return false;
 			}
+			if(reg.test(email) == false) {
+      			alert('Invalid Email Address');
+      			return false;
+    		}
 
 			if (message.length < 20) {
 				alert("Message must be more than 20 characters please and submit again");
 				return false;
 			}
-			var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-    		if(reg.test(email) == false) {
-      			alert('Invalid Email Address');
-      			return false;
-    		}
   		}
 		
 	</script>
